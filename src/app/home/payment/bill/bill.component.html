@@ -1,0 +1,33 @@
+<div class="m01">
+	<h3>帳單清單</h3>
+	<p *ngIf="!billStatus">無須繳費</p>
+	<ul *ngIf="billStatus" class="show">
+		<li><span class="title">結算項目</span><span>數量</span><span>單位</span><span>金額(台幣)</span></li>
+		<li>
+			<span class="title">虛擬伺服器</span><span>{{data.set.vm}}</span><span>台</span><span>{{hardwareBill}}元</span>
+			<ul class="subMenu">
+				<li><span>作業系統({{data.os.name}})</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.os.cost * data.set.vm}}元</span></li>
+				<li><span>硬體規格({{data.spec.server.name}})</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.spec.server.cost * data.set.vm}}元</span></li>
+				<li><span>硬碟空間</span><span>{{totalSpace * data.set.vm}}</span><span>GB</span><span>{{totalSpace * 10 * data.set.vm}}元</span></li>
+				<li *ngIf="data.set.safe[0].status"><span>主機防毒</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.set.vm * 100}}元</span></li>
+				<li *ngIf="data.set.safe[1].status"><span>入侵防護</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.set.vm * 100}}元</span></li>
+				<li *ngIf="data.set.safe[2].status"><span>資料加密</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.set.vm * 100}}元</span></li>
+				<li *ngIf="data.set.safe[3].status"><span>資安檢測</span><span>{{data.set.vm}}</span><span>套</span><span>{{data.set.vm * 100}}元</span></li>
+			</ul>
+		</li>
+		<li *ngIf="data.spec.network.id <= 5"><span class="title">網路頻寬</span><span>{{data.spec.network.flow}}</span><span>{{data.spec.network.unit}}</span><span>{{bandwidthBill}} 元</span></li>
+		<li *ngIf="data.spec.network.id > 5 && data.spec.network.id < 12"><span class="title">網路用量限制</span><span>{{data.spec.network.flow}}</span><span>{{data.spec.network.unit}}</span><span>{{quotaLimitBill}} 元</span></li>
+		<li *ngIf="data.spec.network.id === 12"><span class="title">網路用量計算</span><span>0</span><span>{{data.spec.network.unit}}</span><span> {{data.spec.network.cost}} 元</span></li>
+		<li><span class="title">預租時間折扣</span><span>{{data.spec.time.day}}</span><span>{{data.spec.time.unit}}</span><span>-{{discount}}元</span></li>
+	</ul>
+	<div *ngIf="billStatus"><span>總金額：</span><span>{{totalAmount | number: '1.0-0' }}元</span></div>
+	<p *ngIf="billStatus" class="clear"></p>
+	<ul *ngIf="billStatus" class="show">
+		<li><span>目前付款方式</span></li>
+		<li><span>{{paymentMethod}}</span><a routerLink="/payment/method">變更付款方式</a></li>
+	</ul>
+	<div *ngIf="billStatus" class="where">
+		<a routerLink="/s07" href="javascript:void(0)" class="btn prev">PREV</a>
+		<a (click)="bill()" class="btn save"><i class="fa fa-shopping-basket"></i>結帳</a>
+	</div>
+</div>

@@ -1,0 +1,146 @@
+<div class="wrapper">
+	<!--註冊-->
+	<div id="register" class="jump">
+		<div class="title">註冊 REGISTER</div>
+		<a href="javascript:void(0)" class="jump_close"></a>
+		<div class="con">
+			<div>
+				<h5><i class="fa fa-user"></i>帳號:<span>(必填)</span></h5>
+				<input type="text" placeholder="輸入帳號" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-user-o"></i>暱稱:</h5>
+				<input type="text" placeholder="輸入暱稱" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-key"></i>密碼:<span>(必填)</span></h5>
+				<input type="text" placeholder="輸入密碼" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-key"></i>確認密碼:<span>(必填)</span></h5>
+				<input type="text" placeholder="請再次輸入密碼" />
+				<p><span>錯誤訊息</span></p>
+			</div>
+			<div>
+				<h5><i class="fa fa-envelope "></i>Email:</h5>
+				<input type="text" placeholder="輸入Email" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-id-card"></i>統一編號/身分證號:</h5>
+				<input type="text" placeholder="輸入統一編號/身分證號" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-phone-square"></i>電話:</h5>
+				<input type="text" placeholder="輸入電話" />
+				<p><span>錯誤訊息</span></p>
+				<h5><i class="fa fa-mobile"></i>手機:</h5>
+				<input type="text" placeholder="輸入手機" />
+				<p><span>錯誤訊息</span></p>
+			</div>
+			<p class="clear"></p>
+			<a (click)="registered()" class="blue btn">
+            註冊
+            </a>
+		</div>
+	</div>
+
+	<!--登入-->
+	<!--<form #form="ngForm">
+		<div id="login" class="jump">
+			<div class="title">登入 login</div>
+			<a href="javascript:void(0)" class="jump_close"></a>
+			<div class="con">
+				<div>
+					<h5><i class="fa fa-user"></i>帳號:</h5>
+					<input ngModel #userAccount="ngModel" required name="account" type="text" placeholder="輸入帳號" />
+					<p *ngIf="userAccount.errors" >
+						<span>錯誤訊息 | {{userAccount.invalid}}</span>
+					</p>
+					<h5><i class="fa fa-key"></i>密碼:</h5>
+					<input ngModel #userPw="ngModel" required name="pw" type="text" placeholder="輸入密碼" />
+					<p><span>錯誤訊息</span></p>
+				</div>
+				<p class="clear"></p>
+				<a href="javascript:void(0)" class="blue btn">
+            登入
+            </a>
+			</div>
+		</div>
+	</form>-->
+
+	<!--登入-->
+	<div id="login" class="jump">
+		<div class="title">登入 login</div>
+		<a href="javascript:void(0)" class="jump_close"></a>
+		<div class="con">
+			<div>
+				<h5><i class="fa fa-user"></i>帳號:</h5>
+				<input [(ngModel)]="loginAccount" name="account" type="text" placeholder="輸入帳號" />
+				<!--<p><span>錯誤訊息</span></p>-->
+				<h5><i class="fa fa-key"></i>密碼:</h5>
+				<input [(ngModel)]="loginPw" name="pw" type="password" placeholder="輸入密碼" />
+				<!--<p><span>錯誤訊息</span></p>-->
+			</div>
+			<p class="clear"></p>
+			<a (click)="Login()" href="javascript:void(0)" class="blue btn">
+            登入
+            </a>
+		</div>
+	</div>
+
+	<div class="mask"></div>
+
+	<header>
+		<div class="main">
+			<a routerLink="/" class="logo"></a>
+			<ul class="menu">
+				<li><a target="_blank" href="http://tw.gamagic.com/gamesolution/">營運中心</a></li>
+				<li class="dropdown ser"><a>整合服務</a>
+					<div class="dropdown-content">
+						<p><a routerLink="/">雲端管理平台</a></p>
+						<p><a target="_blank" href="https://sb.gamagic.com">跨國營運服務平台</a></p>
+						<p><a target="_blank" href="https://datasense.gamagic.com">數據分析平台</a></p>
+					</div>
+				</li>
+				<li class="dropdown sol"><a href="javascript:void(0)">解決方案</a>
+					<div class="dropdown-content">
+						<p><a>電子商務</a></p>
+						<p><a>金融服務</a></p>
+						<p><a>媒體服務</a></p>
+						<p><a>遊戲服務</a></p>
+						<p><a>IoT物聯網</a></p>
+					</div>
+				</li>
+				<li><a href="javascript:void(0)">商務合作</a></li>
+				<li [ngClass]="{afterLogin: service.getLogin() , hideLogin : !service.getLogin()}"><a id="login_btn">登入</a></li>
+				<!--登入後隱藏-->
+				<li [ngClass]="{afterLogin: service.getLogin() , hideLogin : !service.getLogin()}"><a id="register_btn">註冊</a></li>
+				<!--登入後隱藏-->
+				<li [ngClass]="{hideLogin: service.getLogin() ,dropdown: service.getLogin() ,user: service.getLogin() , afterLogin : !service.getLogin()}">
+					<i class="fa fa-user"></i>Leon<i class="fa fa-caret-down"></i>
+					<div class="dropdown-content">
+						<p><a target="_blank" href="http://mi.cloud.snsplus.com/iServCloud/?enterprise=snsplus#">控制台</a></p>
+						<p><a routerLink="/payment">付款統計</a></p>
+						<p><a routerLink="/member/center">會員中心</a></p>
+						<p><a (click)="logout()">登出</a></p>
+					</div>
+				</li>
+				<!--登入前隱藏-->
+			</ul>
+		</div>
+	</header>
+
+
+
+	<div class="content">
+		<router-outlet></router-outlet>
+	</div>
+
+
+	<footer>
+		<div class="main">
+			<ul>
+				<li><a href="javascript:void(0)">使用政策</a></li>
+				<li><a href="javascript:void(0)">隱私權政策</a></li>
+				<li><a href="javascript:void(0)">網站條款</a></li>
+				<li><a href="javascript:void(0)">服務條款</a></li>
+			</ul>
+			<p>© SNSplus Inc. All rights reserved.</p>
+		</div>
+	</footer>
+</div>

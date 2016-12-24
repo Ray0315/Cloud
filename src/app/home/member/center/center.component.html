@@ -1,0 +1,48 @@
+<div class="center p02">
+  <div class="main">
+    <div>
+      <h3>會員中心</h3>
+      <div class="zone">
+        <div>基本資料</div>
+        <div>
+          <p>帳號：Leon.chen</p>
+          <p>暱稱：Leon</p>
+          <p>Email：Leon.chen@snsplus.com</p>
+          <p>統一編號/身分證號：A123456789</p>
+          <p>電話：(02)2912-6473</p>
+          <p>手機：0912-123-123</p>
+          <p>前次登入日期：2016/11/07</p>
+          <p>註冊日期：2016/11/07</p>
+          <p *ngIf="!changePw"><a (click)="changePw = true">變更密碼</a></p>
+        </div>
+      </div>
+      <div *ngIf="changePw" class="zone">
+        <div>變更密碼</div>
+        <div>
+          <p>目前密碼：<input type="password" /></p>
+          <p>修改密碼：<input type="password" /></p>
+          <p>確認密碼：<input type="password" /></p>
+          <a (click)="changePw = false" class="btn save"><i class="fa fa-save"></i>儲存</a>
+          <a (click)="changePw = false" class="btn cancel"><i class="fa fa-ban"></i>取消</a>
+          <p class="clear"></p>
+        </div>
+      </div>
+      <div class="zone">
+        <div>服務列表</div>
+        <div>
+          <p><a routerLink="/">雲端服務</a></p>
+          <p><a target="_blank" href="https://datasense.gamagic.com/">大數據服務</a></p>
+        </div>
+      </div>
+    </div>
+    <!--<div>
+            <h3>資源</h3>
+            <p>0  啟動中虛擬伺服器</p>
+            <p>0  Volume</p>
+            <p>0  SSH 金鑰</p>
+            <p>0  Security Group</p>
+            <p>0  Snapshots</p>
+            <p>0  IP 配置量</p>
+        </div>-->
+  </div>
+</div>

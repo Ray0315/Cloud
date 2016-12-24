@@ -1,0 +1,52 @@
+<div class="s06">
+	<div class="main">
+		<div class="process">
+			<div class="past">Step 1</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 2</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 3</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 4</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 5</div>
+			<div class="pro_03"></div>
+			<div class="now">Step 6.設定新的安全群組</div>
+			<div class="pro_02"></div>
+			<div class="future">Step 7</div>
+
+		</div>
+		<div class="clear"></div>
+		<div>
+			<h3>第六步：設定新的安全群組</h3>
+			<div class="zone">
+				<p>設定新的安全群組</p>
+				<ul class="basic">
+					<li><span>型態</span><span>Port  range</span><span>IP/Mask</span><span>刪除</span></li>
+					<li *ngFor="let items of data;let in=index">
+						<span>
+							<select [(ngModel)]="data[in].type"> 
+								<option [selected]="item.name == data[in].type" *ngFor="let item of protocol">{{item.name}}</option>
+							</select>
+						</span>
+						<span>
+							<input [(ngModel)]="data[in].start" type="text" value="{{items.start}}" />to
+							<input [(ngModel)]="data[in].end" type="text" value="{{items.end}}" />
+						</span>
+						<span>
+							<input [(ngModel)]="data[in].ip" type="text" value="{{items.ip}}" />/
+							<input [(ngModel)]="data[in].mask" type="text" value="{{items.mask}}" />
+						</span>
+						<span *ngIf="in !== 0"><a class="delete" (click)="deleteInfo(in)" ></a></span>
+					</li>
+				</ul>
+				<a (click)="addInfo()" class="btn white">建立新的安全群組</a>
+				<div class="clear"></div>
+			</div>
+			<div class="where">
+				<a routerLink="/s05" href="javascript:void(0)" class="btn prev">PREV</a>
+				<a (click)="Check()" class="btn next">NEXT</a>
+			</div>
+		</div>
+	</div>
+</div>

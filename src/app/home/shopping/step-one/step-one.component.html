@@ -1,0 +1,46 @@
+<div class="s01">
+	<div class="main">
+		<div class="process">
+			<div class="now">Step 1.選擇作業系統</div>
+			<div class="pro_02"></div>
+			<div class="future">Step 2</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 3</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 4</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 5</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 6</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 7</div>
+
+		</div>
+		<div class="clear"></div>
+		<div>
+			<h3>第一步：選擇作業系統</h3>
+			<ul class="s01_list">
+				<li *ngIf="1 === 2" class="redHat" (click)="UserSelect(1,'Red Hat Enterprise Linux 7.2',40)">
+					<div class="brand_01"></div>
+					<p>Red Hat Enterprise Linux 7.2 </p>
+					<p>64bit</p><a href="javascript:void(0)" class="btn white">選擇</a></li>
+				<li class="centos" (click)="UserSelect(2,'CentOS 7',0)">
+					<div class="brand_02"></div>
+					<p>CentOS 7 </p>
+					<p>64bit</p><a href="javascript:void(0)" class="btn white">選擇</a></li>
+				<li class="ubuntu" (click)="UserSelect(3,'Ubuntu14.04',0)">
+					<div class="brand_03"></div>
+					<p>Ubuntu14.04 </p>
+					<p>64bit</p><a href="javascript:void(0)" class="btn white">選擇</a></li>
+				<li *ngIf="1 === 2" class="windows" (click)="UserSelect(4,'Windows 2012 Server',40)">
+					<div class="brand_04"></div>
+					<p>Windows 2012 Server</p>
+					<p>64bit</p><a href="javascript:void(0)" class="btn white">選擇</a></li>
+			</ul>
+			<div class="where">
+				<a routerLink="/establish" href="javascript:void(0)" class="btn prev" disabled="disabled">PREV</a>
+				<a (click)="Check()" href="javascript:void(0)" class="btn next">NEXT</a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,93 @@
+<div class="s02">
+	<div class="main">
+		<div class="process">
+			<div class="past">Step 1</div>
+			<div class="pro_03"></div>
+			<div class="now">Step 2.選擇硬體規格</div>
+			<div class="pro_02"></div>
+			<div class="future">Step 3</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 4</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 5</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 6</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 7</div>
+
+		</div>
+		<div class="clear"></div>
+		<div>
+			<h3>第二步：選擇硬體規格</h3>
+			<div class="zone">
+				<p>A. 預租時間</p>
+				<p>
+					<input (click)="UserSelectTime(1,1,'月')" name="s02_A" id="month_01" type="radio" />
+					<label for="month_01">1個月</label>
+					<input (click)="UserSelectTime(2,3,'月')" name="s02_A" id="month_02" type="radio" />
+					<label for="month_02">3個月</label>
+					<input (click)="UserSelectTime(3,6,'月')" name="s02_A" id="month_03" type="radio" />
+					<label for="month_03">6個月</label>
+					<input (click)="UserSelectTime(4,1,'年')" name="s02_A" id="month_04" type="radio" />
+					<label for="month_04">1年</label>
+					<input (click)="UserSelectTime(5,2,'年')" name="s02_A" id="month_05" type="radio" />
+					<label for="month_05">2年</label>
+				</p>
+			</div>
+			<div class="zone">
+				<p>B. 網路規格</p>
+				<p>租約期間網路頻寬限制(e.x.10MB速度吃到飽)</p>
+				<p>
+					<input (click)="UserSelectNetwork(1,'2','MB',20)" name="s02_B" id="web_01" type="radio" />
+					<label for="web_01">2MB</label>
+					<input (click)="UserSelectNetwork(2,'5','MB',25)" name="s02_B" id="web_02" type="radio" />
+					<label for="web_02">5MB</label>
+					<input (click)="UserSelectNetwork(3,'10','MB',30)" name="s02_B" id="web_03" type="radio" />
+					<label for="web_03">10MB</label>
+					<input (click)="UserSelectNetwork(4,'15','MB',35)" name="s02_B" id="web_04" type="radio" />
+					<label for="web_04">15MB</label>
+					<input (click)="UserSelectNetwork(5,'20','MB',40)" name="s02_B" id="web_05" type="radio" />
+					<label for="web_05">20MB</label>
+				</p>
+				<p>租約期間網路用量限制(e.x.:30GB封包量用完為止)</p>
+				<p>
+					<input (click)="UserSelectNetwork(6,'10','GB',40)" name="s02_B" id="web_06" type="radio" />
+					<label for="web_06">10GB</label>
+					<input (click)="UserSelectNetwork(7,'20','GB',45)" name="s02_B" id="web_07" type="radio" />
+					<label for="web_07">20GB</label>
+					<input (click)="UserSelectNetwork(8,'50','GB',50)" name="s02_B" id="web_08" type="radio" />
+					<label for="web_08">50GB</label>
+					<input (click)="UserSelectNetwork(9,'100','GB',100)" name="s02_B" id="web_09" type="radio" />
+					<label for="web_09">100GB</label>
+					<input (click)="UserSelectNetwork(10,'200','GB',200)" name="s02_B" id="web_10" type="radio" />
+					<label for="web_10">200GB</label>
+					<input (click)="UserSelectNetwork(11,'300','GB',300)" name="s02_B" id="web_11" type="radio" />
+					<label for="web_11">300GB</label>
+				</p>
+				<p>租約期間網路用量(e.x.: 用多少算多少)</p>
+				<p>
+					<input (click)="UserSelectNetwork(12,'','租約期間用量', 0)" name="s02_B" id="web_12" type="radio" />
+					<label for="web_12">計算租約期間用量</label>
+				</p>
+			</div>
+			<div class="zone">
+				<p>C. 虛擬伺服器規格</p>
+				<ul class="basic">
+					<li><span>Flavor Name</span><span>VCPUS</span><span>RAM</span>
+						<!--<span>Total Disk</span>--><span>Root Disk</span>
+						<!--<span>Ephemeral</span><span>Public</span>--></li>
+					<li (click)="UserSelectServer(1,'M1.tiny',40)"><input name="s02_C" id="web_13" type="radio" /><label for="web_13"><span>M1.tiny</span><span>1</span><span>512 MB</span><!--<span>1 GB</span>--><span>1 GB</span><!--<span>0 GB</span><span>YES</span>--></label></li>
+					<li (click)="UserSelectServer(2,'M1.small',80)"><input name="s02_C" id="web_14" type="radio" /><label for="web_14"><span>M1.small</span><span>1</span><span>2 GB</span><!--<span>1 GB</span>--><span>20 GB</span><!--<span>0 GB</span><span>YES</span>--></label></li>
+					<li (click)="UserSelectServer(3,'M1.medium',160)"><input name="s02_C" id="web_15" type="radio" /><label for="web_15"><span>M1.medium</span><span>2</span><span>4 GB</span><!--<span>40 GB</span>--><span>40 GB</span><!--<span>0 GB</span><span>YES</span>--></label></li>
+					<li (click)="UserSelectServer(4,'M1.large',320)"><input name="s02_C" id="web_16" type="radio" /><label for="web_16"><span>M1.large</span><span>4</span><span>8 GB</span><!--<span>1 GB</span>--><span>80 GB</span><!--<span>0 GB</span><span>YES</span>--></label></li>
+					<li (click)="UserSelectServer(5,'M1.xlarge',640)"><input name="s02_C" id="web_17" type="radio" /><label for="web_17"><span>M1.xlarge</span><span>8</span><span>16 GB</span><!--<span>1 GB</span>--><span>160 GB</span><!--<span>0 GB</span><span>YES</span>--></label></li>
+				</ul>
+			</div>
+			<div class="where">
+				<a routerLink="/s01" class="btn prev">PREV</a>
+				<a (click)="Check()" class="btn next">NEXT</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>

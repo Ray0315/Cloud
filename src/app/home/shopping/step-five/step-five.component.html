@@ -1,0 +1,41 @@
+<div class="s05">
+    <div class="main">
+        <div class="process">
+            <div class="past">Step 1</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 2</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 3</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 4</div>
+            <div class="pro_03"></div>
+            <div class="now">Step 5.新增SSH金鑰</div>
+            <div class="pro_02"></div>
+            <div class="future">Step 6</div>
+            <div class="pro_01"></div>
+            <div class="future">Step 7</div>
+
+        </div>
+        <div class="clear"></div>
+        <div>
+            <h3>第五步：新增SSH金鑰</h3>
+            <div class="zone">
+                <p>新增SSH金鑰</p>
+                <ul class="basic">
+                    <li><span>金鑰名稱</span><span>值(最大255字元)</span><span>刪除</span></li>
+                    <li *ngFor="let item of data ;let in=index">
+                        <span><input [(ngModel)]="data[in].key" type="text" placeholder="輸入名稱" value="{{item.key}}" /></span>
+                        <span><input [(ngModel)]="data[in].value" type="text" placeholder="輸入數字" value="{{item.value}}" /></span>
+                        <span *ngIf="in !== 0"><a (click)=deleteInfo(in) class="delete" ></a></span>
+                    </li>
+                </ul>
+                <a (click)=addInfo() class="btn white">建立金鑰</a>
+                <div class="clear"></div>
+            </div>
+            <div class="where">
+                <a routerLink="/s04" class="btn prev">PREV</a>
+                <a (click)="Check()" class="btn next">NEXT</a>
+            </div>
+        </div>
+    </div>
+</div>

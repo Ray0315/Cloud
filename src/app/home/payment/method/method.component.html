@@ -1,0 +1,11 @@
+<div class="m02">
+	<h3>付款方式</h3>
+	<p>付款方式(單選)</p>
+
+	<form #f="ngForm">
+		<p><input name="pay" type="radio" [(ngModel)]="method" value="sonet" />信用卡(預設)</p>
+		<p><input name="pay" type="radio" [(ngModel)]="method" value="esunbank" />玉山虛擬帳戶</p>
+	</form>
+
+	<a (click)="savePaymentMethod()" class="btn save"><i class="fa fa-save"></i>儲存</a>
+</div>

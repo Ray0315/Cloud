@@ -1,0 +1,54 @@
+<div class="s03">
+	<div class="main">
+		<div class="process">
+			<div class="past">Step 1</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 2</div>
+			<div class="pro_03"></div>
+			<div class="now">Step 3.設定虛擬伺服器</div>
+			<div class="pro_02"></div>
+			<div class="future">Step 4</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 5</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 6</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 7</div>
+
+		</div>
+		<div class="clear"></div>
+		<div>
+			<h3>第三步：設定虛擬伺服器</h3>
+			<div class="zone">
+				<p>1. 虛擬伺服器
+					<input id='machine' name="" type="number" size="1" min="1" [(ngModel)]="vm" [value]='vm' oninput="validity.valid||(value='');" />台</p>
+				<!--<input type="number" min="1" step="1" [ngModel]="vm" (ngModelChange)="validate($event)" oninput="validity.valid||(value='');">台</p>-->
+				<!--onkeypress='return event.charCode >= 48 && event.charCode <= 57 && event.charCode != 109'-->
+				<p>2. 子網路
+					<select name="opt" [(ngModel)]="subnetwork">
+						<option [selected]="item.name == subnetwork"  *ngFor="let item of data">{{item.ip}}</option>
+					</select>
+					<a href="javascript:void(0)">建立子網路</a></p>
+				<p>3. 權限<select name="" [(ngModel)]="selectUser">
+					<option [selected]="item.name == selectUser" *ngFor="let item of data2">{{item.user}}</option></select>
+					<a href="javascript:void(0)">建立權限群組</a></p>
+				<p>4. 自動配置對外網路<span>{{outnetwork}}</span></p>
+				<p>5. 資安防護（複選）</p>
+				<p>
+					<label *ngFor="let item of data3;let in=index">
+						 <input [(ngModel)]="data3[in].status" type="checkbox" />
+						 {{item.name}}
+					</label>
+					<!--<input [checked]="antivirus" (change)="antivirus = $event.target.checked" type="checkbox" />主機防毒
+					<input [checked]="ips" (change)="ips = $event.target.checked" type="checkbox" />入侵防護
+					<input [checked]="encryption" (change)="encryption = $event.target.checked" type="checkbox" />資料加密
+					<input [checked]="safe" (change)="safe = $event.target.checked" type="checkbox" />資安檢測-->
+				</p>
+			</div>
+			<div class="where">
+				<a routerLink="/s02" href="javascript:void(0)" class="btn prev">PREV</a>
+				<a (click)="Check()" class="btn next">NEXT</a>
+			</div>
+		</div>
+	</div>
+</div>

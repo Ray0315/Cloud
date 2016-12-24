@@ -1,0 +1,42 @@
+<div class="s04">
+	<div class="main">
+		<div class="process">
+			<div class="past">Step 1</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 2</div>
+			<div class="pro_04"></div>
+			<div class="past">Step 3</div>
+			<div class="pro_03"></div>
+			<div class="now">Step 4.新增硬碟空間</div>
+			<div class="pro_02"></div>
+			<div class="future">Step 5</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 6</div>
+			<div class="pro_01"></div>
+			<div class="future">Step 7</div>
+
+		</div>
+		<div class="clear"></div>
+		<div>
+			<h3>第四步：新增硬碟空間</h3>
+			<div class="zone">
+				<p>新增硬碟空間</p>
+				<ul class="basic">
+					<li><span>外接磁碟名稱</span><span>空間(GB)</span><span>裝置</span><span>刪除</span></li>
+					<li *ngFor="let item of data ;let in=index">
+						<span><input [(ngModel)]="data[in].name" type="text" placeholder="輸入名稱" value="{{item.name}}" /></span>
+						<span><input [(ngModel)]="data[in].space" type="text" placeholder="輸入數字" value="{{item.space}}" /></span>
+						<span>{{item.device}}</span>
+						<span *ngIf="in !== 0"><a class="delete" (click)="deleteInfo(in)"></a></span>
+					</li>
+				</ul>
+				<a href="javascript:void(0)" (click)=addInfo() class="btn white">新增外接硬碟</a>
+				<div class="clear"></div>
+			</div>
+			<div class="where">
+				<a routerLink="/s03" class="btn prev">PREV</a>
+				<a (click)="Check()" class="btn next">NEXT</a>
+			</div>
+		</div>
+	</div>
+</div>

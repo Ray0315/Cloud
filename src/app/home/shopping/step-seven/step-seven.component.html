@@ -1,0 +1,104 @@
+<div class="s07">
+	<div class="main">
+    	<div class="process">
+        	<div class="past">Step 1</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 2</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 3</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 4</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 5</div>
+            <div class="pro_04"></div>
+            <div class="past">Step 6</div>
+            <div class="pro_03"></div>
+            <div class="now">Step 7.詳細規格</div>
+            
+        </div>
+        <div class="clear"></div>
+        <div >
+        	<h3>第七步：詳細規格</h3>
+            <h4>作業系統</h4>
+            <div class="s01">
+                <ul >
+                    <li><div class="brand_0{{os.id}}"></div><p>{{os.name}} </p><p>64bit</p></li>
+                </ul>
+            </div>
+            <h4>硬體規格</h4>
+            <div class="s02">
+            	<div class="zone">
+            	  <p>A.預租時間</p>
+                  <p><input name="s02_A" type="radio" checked="checked" /><label>{{spec.time.day + spec.time.unit}}</label></p>
+                </div>
+                <div class="zone">
+                      <p>B.網路規格</p>
+                      <p *ngIf="spec.network.id <= 5">租約期間網路頻寬限制(e.x.10MB速度吃到飽)</p>
+					  <p *ngIf="spec.network.id > 5 && spec.network.id < 12">租約期間網路用量限制(e.x.:30GB封包量用完為止)</p>
+					  <p *ngIf="spec.network.id === 12">租約期間網路用量(e.x.: 用多少算多少)</p>
+                      <p><input name="s02_B" type="radio" checked="checked"/><label>{{spec.network.flow + spec.network.unit}}</label></p>                      
+                </div>
+                <div class="zone">
+                      <p>C.虛擬伺服器規格</p>
+                      <ul class="show">
+                        <li><span></span><span>Name</span><span>VCPUS</span><span>RAM</span><!--<span>Total Disk</span>--><span>Root Disk</span><!--<span>Ephemeral</span><span>Public</span>--></li>
+                        <li *ngIf="spec.server.id === 1"><span></span><span>M1.tiny</span><span>1</span><span>512 MB</span><!--<span>1 GB</span>--><span>1 GB</span><!--<span>0 GB</span><span>YES</span>--></li>
+						<li *ngIf="spec.server.id === 2"><span></span><span>M1.small</span><span>1</span><span>2 GB</span><!--<span>1 GB</span>--><span>20 GB</span><!--<span>0 GB</span><span>YES</span>--></li>
+						<li *ngIf="spec.server.id === 3"><span></span><span>M1.medium</span><span>2</span><span>4 GB</span><!--<span>1 GB</span>--><span>40 GB</span><!--<span>0 GB</span><span>YES</span>--></li>
+						<li *ngIf="spec.server.id === 4"><span></span><span>M1.large</span><span>4</span><span>8 GB</span><!--<span>1 GB</span>--><span>80 GB</span><!--<span>0 GB</span><span>YES</span>--></li>
+						<li *ngIf="spec.server.id === 5"><span></span><span>M1.xlarge</span><span>8</span><span>16 GB</span><!--<span>1 GB</span>--><span>160 GB</span><!--<span>0 GB</span><span>YES</span>--></li>
+						
+                      </ul>
+                </div>
+            </div>
+            <h4>設定虛擬伺服器</h4>
+            <div class="s03">
+                <div class="zone">
+                    <p>1. 虛擬伺服器<span>{{set.vm}}</span>台</p>
+                    <p>2. 子網路<span>{{set.subnetwork}}</span></p>
+                    <p>3. 權限<span>{{set.access}}</span></p>
+                    <p>4. 自動配置對外網路<span>{{set.outnetwork}}</span></p>
+                    <p>5. 資安防護（複選）</p>
+                    <p>
+						<label *ngFor="let item of set.safe;let in=index"><input type="checkbox" [(ngModel)]="set.safe[in].status" disabled="disabled"/>{{item.name}}</label>
+					</p>
+                </div>
+            </div>
+            <h4 *ngIf="hdd[0].space !== ''">新增硬碟空間</h4>
+            <div class="s04" *ngIf="hdd[0].space !== ''">
+                <div class="zone">
+                    <ul class="show">
+                        <li><span>外接磁碟名稱</span><span>空間(GB)</span><span>裝置</span></li>
+                        <li *ngFor="let item of hdd"><span>{{item.name}}</span><span>{{item.space}}GB</span><span>{{item.device}}</span></li>
+                    </ul>
+                    <div class="clear"></div>              
+                </div>
+            </div>
+            <h4>新增SSH金鑰</h4>
+            <div class="s05">
+                <div class="zone">
+                    <ul class="show">
+                        <li><span>金鑰名稱</span><span>值(最大255字元)</span></li>
+                        <li *ngFor="let item of sll"><span>{{item.key}}</span><span>{{item.value}}</span></li>
+                    </ul>
+                    <div class="clear"></div>              
+                </div>
+            </div>
+            <h4>設定新的安全群組</h4>
+            <div class="s06">
+                <div class="zone">
+                    <ul class="show">
+                        <li><span>型態</span><span>Port  range</span><span>IP/Mask</span></li>
+                        <li *ngFor="let item of group"><span><span>{{item.type}}</span></span><span>{{item.start}} to {{item.end}}</span><span>{{item.ip}} / {{item.mask}}</span></li>                    
+                    </ul>
+                    <div class="clear"></div>              
+                </div>
+            </div>
+            <div class="where">
+            	<a routerLink="/s06" href="javascript:void(0)" class="btn prev">PREV</a>
+				<a routerLink="/payment" href="javascript:void(0)" class="btn next">NEXT</a>
+                <div class="clear"></div>
+            </div>
+        </div>  
+    </div>
+</div>
